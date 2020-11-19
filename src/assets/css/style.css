@@ -1,0 +1,81 @@
+.container {
+  background-color: #ffd0a8;
+  min-height: 100vh;
+  display: flex;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+}
+#quote-box {
+  width: 70%;
+  margin: 3rem auto;
+  align-self: center;
+  padding: 1rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 17px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #eee;
+  transition: all 0.5s ease-in-out;
+}
+#quote-box blockquote {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-size: 18px;
+}
+
+#quote-box blockquote h2 {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+#quote-box #author {
+  font-size: 13px;
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+#quote-box #author::before {
+  content: "-";
+  padding-right: 5px;
+}
+#new-quote {
+  font-size: 13px;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+  color: #fff;
+  background: #d89156;
+  border-radius: 5px;
+}
+#tweet-quote {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: rgb(155, 89, 182);
+  color: #fff;
+  font-size: 16px;
+  width: 25px;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  #quote-box {
+    margin: 5rem auto;
+    padding: 2rem;
+    width: 50%;
+  }
+  #quote-box blockquote {
+    font-size: 24px;
+  }
+  #quote-box #author {
+    font-size: 15px;
+  }
+  #tweet-quote {
+    font-size: 18px;
+    width: 30px;
+  }
+}
