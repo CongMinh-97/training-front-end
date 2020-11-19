@@ -1,0 +1,23 @@
+@mixin d-flex {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+@mixin absolute($direction: 'left') {
+  position: absolute;
+  @if $direction == 'center' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $direction == 'right' {
+    top: 0;
+    right: 0;
+  }
+  @if $direction == 'top' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,25 @@
+.header__search {
+  position: relative;
+  display: flex;
+  width: 50%;
+  background-color: $color-light;
+  border: 1px solid rgba(219, 219, 219, 0.5);
+  border-radius: 3rem;
+  padding: 0.5rem 1rem;
+  input {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: $font-primary;
+    padding: 0.5rem 0;
+    margin-left: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    width: 90%;
+    outline: none;
+  }
+}
+.icon__search {
+  font-size: 20px;
+  color: $color-primary;
+  align-self: center;
+}
