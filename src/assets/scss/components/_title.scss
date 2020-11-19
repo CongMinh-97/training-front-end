@@ -1,0 +1,18 @@
+.title h2,
+.title a {
+  font-family: $font-primary;
+  color: $color-primary;
+  text-transform: capitalize;
+  font-weight: $font-medium;
+  font-size: 20px;
+  margin-right: 0.5rem;
+}
+
+.title--hover:hover a + i {
+  color: $color-secondary;
+}
+
+.title--after::after {
+  content: '';
+  position: absolute;
+}
