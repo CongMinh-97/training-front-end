@@ -1,0 +1,45 @@
+// style text
+.text--center {
+  text-align: center;
+}
+.text--uppercase {
+  text-transform: uppercase;
+}
+.text--white {
+  color: $color-light;
+}
+.text--dark {
+  color: $color-dark;
+}
+// style overlay
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.6;
+}
+.mt-15 {
+  margin-top: 1.5rem;
+}
+.mt-30 {
+  margin-top: 3rem;
+}
+.mb-20 {
+  margin-bottom: 2rem;
+}
+.pt-15 {
+  padding-top: 1.5rem;
+}
+
+// display
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
