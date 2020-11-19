@@ -1,7 +1,9 @@
 .box {
   @media (min-width: 768px) {
     min-width: 20rem;
+    // min-height: 20rem;
   }
+
   &__inner {
     position: relative;
     transition: all 0.7s;
@@ -11,13 +13,31 @@
     }
     .img {
       width: 100%;
-      overflow: hidden;
+      min-height: 20rem;
+    }
+    .animate::after {
+      transition: all 0.7s ease-in-out;
+      transform-origin: center;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      background-size: cover;
+    }
+    .zoom-in {
       position: relative;
-      padding: 0.5rem;
-      transition: all 0.3s;
-      border-radius: 5px;
-      img {
-        border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      width: 20rem;
+      height: 20rem;
+      float: left;
+      border: 1px solid;
+      &:hover:after {
+        transform: scale(1.1);
       }
     }
   }
@@ -49,10 +69,7 @@
     color: $color-light;
   }
 }
-.box__inner:hover .img img {
-  transform: scale(1.2);
-  cursor: pointer;
-}
+
 .box__inner:hover .player-action {
   display: block;
   z-index: 222;

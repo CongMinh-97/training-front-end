@@ -1,0 +1,22 @@
+.footer {
+  color: $color-quaternary;
+  padding: 5rem 0;
+  &--top {
+    img {
+      margin-right: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+  &--bottom {
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+    a {
+      display: block;
+      font-size: 13px;
+      color: $color-quaternary;
+      padding-right: 1.5rem;
+    }
+  }
+}

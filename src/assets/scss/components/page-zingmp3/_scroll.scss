@@ -1,0 +1,17 @@
+.scroll-top {
+  position: fixed;
+  bottom: 5%;
+  right: 3rem;
+  width: 40px;
+  height: 40px;
+  z-index: 1111;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  i {
+    margin-top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,43 @@
+.service {
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee;
+    text-align: center;
+    display: flex;
+    margin-right: 2rem;
+    padding: 0 1.5rem;
+    transition: all 0.5s ease-in-out;
+    i {
+      color: red;
+      font-size: 18px;
+      margin: 0 auto;
+      align-self: center;
+    }
+  }
+  &__icon:hover {
+    background-color: #696e6e;
+    transition: all 0.5s ease-in-out;
+  }
+  &__icon:hover i {
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+  }
+  &__content {
+    h3 {
+      font-size: 20px;
+      color: $color-primary;
+      margin-bottom: 1rem;
+    }
+  }
+  &__desc {
+    font-size: 14px;
+    color: #696e6e;
+    line-height: 1.2;
+  }
+}

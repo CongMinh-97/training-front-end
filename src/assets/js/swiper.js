@@ -60,5 +60,26 @@ var swiper01 = new Swiper('.header__banner .swiper-container', {
       },
     },
   });
-
+  var swiperSinger = new Swiper('.list-singer .swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    }, 
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      },
+    },
+  });
   console.log(swiper02)
