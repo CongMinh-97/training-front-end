@@ -127,6 +127,9 @@ span.tag {
 span.tag > a {
   color: inherit;
 }
+span.tag i {
+  margin-right: 0.5rem;
+}
 .news__content .news__title {
   font-size: 28px;
   margin-top: 1rem;
@@ -277,4 +280,83 @@ span.tag > a {
   background-color: #fbb416;
   padding-left: 4rem;
   padding-right: 4rem;
+  position: relative;
+  transition: 0.5s;
+}
+.btn--animation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #25252580;
+  transform: scaleX(0);
+  transition: 0.5s;
+  transform-origin: 0 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+}
+.btn--animation:hover::before {
+  transform: scaleX(1);
+}
+
+/* footer */
+#footer {
+  background-color: #000;
+  color: #fff;
+  padding: 5rem 0;
+}
+
+.list-tags .tag {
+  margin-right: 0.7rem;
+  margin-bottom: 0.7rem;
+  background-color: #000;
+  color: #e8e8e8;
+  border: 1px solid #989393d9;
+  transition: 0.5s;
+}
+
+.list-tags .tag:hover {
+  background-color: #fbb416;
+  color: #131313;
+  cursor: pointer;
+}
+
+/* reviews */
+.reviews__inner {
+  margin-top: 3rem;
+}
+.box {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.box__img {
+  position: relative;
+}
+.box__img .rating {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  background-color: #fbb416;
+  padding: 0.5rem 1.5rem;
+  font-size: 14px;
+  display: inline-block;
+}
+.box__content {
+  padding-left: 2rem;
+  color: #fff;
+}
+.box__title a {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 1rem;
+}
+.box__time {
+  font-size: 13px;
+}
+.box__time i {
+  margin-right: 0.5rem;
 }

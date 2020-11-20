@@ -8,11 +8,14 @@ img {
   border: 0;
   vertical-align: middle;
   object-fit: cover;
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
 }
 .show {
   display: block !important;
   transition: all 0.5s;
+}
+.hide {
+  display: none !important;
 }
 .btn {
   outline: none;
@@ -28,6 +31,27 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.overlay:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top left, #000, rgb(131, 126, 126));
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  display: none;
+}
+.zoom-in > {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  overflow: hidden;
+}
+.zoom-in:hover > {
+  transform: scale(1.2);
 }
 
 .w-half {
