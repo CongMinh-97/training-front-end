@@ -10,6 +10,10 @@ img {
   object-fit: cover;
   background-color: #fcfcfc;
 }
+.show {
+  display: block !important;
+  transition: all 0.5s;
+}
 .btn {
   outline: none;
   border: none;

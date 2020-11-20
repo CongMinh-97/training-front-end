@@ -9,18 +9,36 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  position: relative;
 }
 
 .header__logo img {
-  max-width: 15rem;
+  max-width: 10rem;
+}
+.header__menu {
+  display: none;
+}
+.header__menu.show-menu {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  margin: 1rem 1.5rem;
+  background: #171410e0;
+}
+.header__menu.show-menu .menu__item {
+  border-bottom: 0.5px solid #ffffff47;
+}
+.header__menu.show-menu .menu__link {
+  color: #fff;
 }
 .header__menu .menu__list {
   display: flex;
   flex-direction: column;
 }
 .menu__list .menu__item {
-  padding-right: 2.5rem;
+  padding-right: 0;
 }
 .menu__list .menu__link {
   display: block;
@@ -28,19 +46,43 @@
   color: #131313;
   font-size: 17px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
+  transition: all 0.5s ease-in-out;
 }
 .menu__list .menu__link:hover {
   color: #fbb416;
   transition: all 0.3s ease-in-out;
 }
 
+.btn--toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+}
 @media screen and (min-width: 768px) {
   .header,
   .header__menu .menu__list {
     flex-direction: row;
+    align-items: center;
+  }
+  .header__menu {
+    display: block;
+  }
+  .menu__list .menu__item {
+    padding-right: 2.5rem;
+  }
+  .menu__list .menu__item:last-child {
+    padding-right: 0;
+  }
+  .btn--toggle {
+    display: none;
   }
 }
 /* MAIN */
@@ -101,8 +143,8 @@ span.tag > a {
   margin-right: 0.5rem;
 }
 
-.news:hover::after,
-.article__img:hover:after {
+.news::after,
+.article__img:after {
   content: "";
   position: absolute;
   top: 0;
@@ -112,11 +154,16 @@ span.tag > a {
   background-image: linear-gradient(to top left, #000, rgb(131, 126, 126));
   opacity: 0.6;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  display: none;
 }
-
+.news:hover::after,
+.article__img:hover:after {
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
 .news:hover {
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
 }
 @media screen and (min-width: 768px) {
   .news {
@@ -137,9 +184,14 @@ span.tag > a {
 .article__img {
   position: relative;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 .article__img img {
   width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+.article__img:hover img {
+  transform: scale(1.2);
 }
 .article__img > a {
   display: block;
