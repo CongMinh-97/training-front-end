@@ -1,0 +1,41 @@
+html {
+  font-size: 62.5%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+  object-fit: cover;
+  background-color: #fcfcfc;
+}
+.btn {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  background-color: #eee;
+  text-align: center;
+}
+.bg-img {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.w-half {
+  width: 50%;
+}
+.h-half {
+  height: 50%;
+}
+
+.mt-30 {
+  margin-top: 3rem;
+}
+.mt-50 {
+  margin-top: 5rem;
+}
