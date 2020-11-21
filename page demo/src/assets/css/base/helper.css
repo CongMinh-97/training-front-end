@@ -1,0 +1,99 @@
+html {
+  font-size: 62.5%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+  object-fit: cover;
+  /* background-color: #fcfcfc; */
+}
+.show {
+  display: block !important;
+  transition: all 0.5s;
+}
+.hide {
+  display: none !important;
+}
+.btn {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  background-color: #eee;
+  text-align: center;
+}
+.bg-img {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top left, #000, rgb(131, 126, 126));
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  display: none;
+}
+.overlay:hover::before {
+  display: block;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+}
+.zoom-in img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  overflow: hidden;
+}
+.zoom-in:hover img {
+  transform: scale(1.2);
+}
+
+.zoom-out img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  overflow: hidden;
+  transform: scale(1.2);
+}
+.zoom-out:hover img {
+  transform: scale(1);
+}
+.w-half {
+  width: 50%;
+}
+.h-half {
+  height: 50%;
+}
+
+/* position */
+.pos-centerX {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+/* sytle text */
+.text--uppercase {
+  text-transform: uppercase;
+}
+.text--center {
+  text-align: center;
+}
+.mt-20 {
+  margin-top: 2rem;
+}
+.mt-30 {
+  margin-top: 3rem;
+}
+.mt-50 {
+  margin-top: 5rem;
+}
