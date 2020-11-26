@@ -230,9 +230,9 @@ var user03 = {
 // Enhanced object literals thi neu thuoc tinh trung vs ten bien thi co the bo. 
 // voi method thi co the bo kieu viet theo function an danh-> tuong minh hon
 var user04 = {
-    age,
+    age:20,
     setName(name){
-        this.name=name;
+        this.name = name;
     },
     getName(){
         return this.name;
@@ -243,6 +243,78 @@ user04.setName("Nguyen van a");
 console.log(user04.getName());
 
 // ----------- 3.6. class, class inheritance, method overriding
+// class: phai dinh nghia class truoc roi moi co the goi va dung no
+// mot class co duy nhat mot constructor - ham khoi tao 
+class Rectangle{
+    constructor(width, height){
+        this.width = width; 
+        this.height = height;
+    }
+    getArea(){
+        return this.width*this.height;
+    }
+    toString(){
+        return "width: " + this.width + ",height: "+ this.height;
+    }
+}
+class Square extends Rectangle{
+    toString(){
+        return "width: " + this.width;
+    }
+}
+var re = new Rectangle(300, 500);
+var square = new Square(300);
+console.log(square.toString());
+
+
+class Fish {
+    constructor(habitat, length) {
+      this.habitat = habitat
+      this.length = length
+    }
+    
+    renderProperties() {
+      console.log("fish");
+    }
+    show(){
+        console.log("this is a fish");
+    }
+}
+//inheritance - thua ke. mot class cha co nhieu class con ke thua n.
+class Trout extends Fish {
+    constructor(habitat, length, variety) {
+        super(habitat, length) // super de habitat, length se duoc ke thua tu class cha 
+        //or 
+    //   super(); // neu goi super ma k truyen parameter vao thi 2 thuoc tinh habitat va length se k co gia tri cho toi khi chung duoc gan
+    //   this.habitat = habitat;
+    //   this.length = length;
+        this.variety = variety
+    }
+    static someThing(){
+        console.log("static");
+    }
+    renderPropertiesWithSuper() {
+        console.log("Trout");
+        super.renderProperties();// su dung super de goi method tu class cha
+    }
+    show(f1){
+        console.log("this is a trout");
+        f1();
+    }
+}
+var trout = new Trout("freshwater",10,"rainbow");
+trout.renderPropertiesWithSuper(); // Trout cua class con
+                                    // fish cua class cha cua no
+// overrding: ghi de, 
+trout.show(function(){
+    console.log("aaa");
+});
+
+//static : khi dung static thi co the goi method truc tiep, k can thong qua instance( vd: var x = new ClassName())
+//static thuong dung cho cac method dung chung
+Trout.someThing(); // log: static
+// Trout.renderPropertiesWithSuper(); // log: err renderPropertiesWithSuper is not a function vi n kp la static method nen k the goi truc tiep
+
 
 // ---------- 3.7. super, static, rest, spead
 // -----------3.7.3.rest parameter with function: cho phep mot ham nhan vo so doi so, gop thanh mang
@@ -312,7 +384,60 @@ const  car = {
 getCar(car);
 console.log("name car: ", car.name); //Change
 // ------------ 3.9. closure
+//closure:function tra ve 1 function, function ben trong co the truy cap den cac bien function ngoai no
+function sum(a,b){
+    var c= a+b;
+    console.log(c);
+    return c;
+}
+function sumClosure(a,b){
+    var c=a+b;
+    return function(str){
+        console.log(c);// truy cap den bien c cua function ben ngoai no
+        console.log(`${str} bang ${c}`);
+    }
+}
+
+sum(1,3);
+sumClosure(1,3)(); // sumClosure(1,3)- goi den function ngoai, () de goi den function in ra c.
+var sum01= sumClosure(1,3); // sum01 se nhan ve la function ben trong sumClosure
+sum01("tong"); // log: tong bang 4
 // ------------ 3.10. Higer order functions
+//higer order function: hàm hoạt động dựa trên một hàm khác. nó có thể nhận function là tham số đầu vào hoặc return ra một hàm khác. 
+function mutiplier(multNum){
+    return function(num){
+        return multNum*num;
+    }
+}
+var doubler = mutiplier(2);     //Hệ số nhân là 2
+var _3x2_ = doubler(3); 
+console.log(_3x2_);          //6
+var _4x2_ = doubler(4);    
+// callback function: ham duoc goi lai ben trong mot ham khac, 
+//gap nhieu trong viec lang nghe cac su kien va xu ly bat dong bo trong js( vd: goi ajax)
+document.getElementById('#button').addEventListener('click', function(){
+    console.log('clicked button');
+})
+// khi callback chu y den viec su dung this. dung call/apply de set lai doi tuong tro toi cua con tro this
+var personInfo = {
+    name : 'ABC',
+    setName : function(name){
+        // giá trị này sẽ không có tác dụng với key name trong object này
+        // nếu như ta sử dụng nó là một callback function
+        this.name = name;
+    }
+};
+// Hàm có tham số callback
+function test(callback, callbackObject){
+    var name = "Nguyen Van A";
+    callback.apply(callbackObject, [name]);
+}
+// Gọi đến hàm và truyền hàm callback vào
+test(personInfo.setName, personInfo);
+// Kết quả: Nguyen Van A
+console.log(personInfo.name);
+
+
 // ------------- 3.11. Destructuring - phân rã
 // voi array
 var arrNumber = [1,3,4,6,9];
@@ -325,6 +450,39 @@ var khoahoc ={
 }
 var {tenkhoahoc, gia} = khoahoc;
 console.log(tenkhoahoc, gia);
+
+
+
+// ***************** AJAX
+// giúp tải data từ server mà k cần load lại trang
+// tạo một obj XMLHTMLRequest
+var sendajax = function () {
+    //Khoi tao doi tuong XMLHttpRequest
+    var xhttp = new XMLHttpRequest() || ActiveXObject();
+    //Bat su kien thay doi trang thai cua request
+    xhttp.onreadystatechange = function () {
+        //Kiem tra neu nhu da gui request thanh cong
+        if (this.readyState == 4 && this.status == 200) {
+            //In ra data nhan duoc
+            addData(this.responseText)
+            console.log(this); // this la obj XMLHttpRequest
+        }
+    }
+    //cau hinh request, 
+    xhttp.open('GET','https://toidicode.com/livepost/php/description.php?data=true',true);// nếu tham số 3 là false thì ngừng thực thi cho đến khi phản hồi của máy chủ sẵn sàng. 
+                                                             //Nếu máy chủ bận hoặc chậm, ứng dụng sẽ bị treo hoặc dừng. nên k cần hàm onreadystatechange mà thực hiện addData sau khi send
+    //gui request len server
+    xhttp.send();
+    // addData(xhttp.responseText) // neu xhttp.open(, ,  false)
+}
+var addData = function (data) {
+    document.getElementById('result').innerText = data;
+}
+
+//POST - GET
+//GET gửi dữ liệu dung lượng ít hơn POST, bảo mật kém hơn POST, truy xuất dữ liệu nhanh hơn POST, không thể gửi dữ liệu nhị phân,hình ảnh ... 
+// nếu dùng POST thì phải thêm xhttp.setRequestHeader() để thêm HTTP headers to the request
+
 
 
 

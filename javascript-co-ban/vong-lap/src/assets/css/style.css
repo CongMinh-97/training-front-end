@@ -1,0 +1,17 @@
+.ex2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+.ex2 .bg {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  margin-right: 20px;
+}
+
+.ex2 button {
+  margin-top: 20px;
+  padding: 10px;
+}
