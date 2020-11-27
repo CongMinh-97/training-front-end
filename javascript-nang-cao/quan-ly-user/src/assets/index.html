@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript cơ bản</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <form class="user-info mt-5" id="form-data">
+                    <div class="group">
+                        <label for="">Name:</label>
+                        <input type="text" id="name" value="" required>
+                        <i class="far fa-check-circle success"></i>
+                        <i class="fas fa-exclamation-circle error"></i>
+                        <span class="message-error">Error Message</span>
+                    </div>
+                    <div class="group">
+                        <label for="">Age:</label>
+                        <input type="text" id="age" value="" required>
+                        <i class="far fa-check-circle success"></i>
+                        <i class="fas fa-exclamation-circle error"></i>
+                        <span class="message-error">Error Message</span>
+                    </div>
+                    <div class="group">
+                        <label for="">Email:</label>
+                        <input type="text" id="email" value="" required>
+                        <i class="far fa-check-circle success"></i>
+                        <i class="fas fa-exclamation-circle error"></i>
+                        <span class="message-error">Error Message</span>
+                    </div>
+                    <div class="group">
+                        <label for="">Address:</label>
+                        <input type="text" id="address" value="" required>
+                        <i class="far fa-check-circle success"></i>
+                        <i class="fas fa-exclamation-circle error"></i>
+                        <span class="message-error">Error Message</span>
+                    </div>
+                    <button id="btn-add" class="btn" onclick="user.create()">Add</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <h3>Danh sach</h3>
+                <table class="students-table" border="1">
+                    <thead>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                    </tbody>                   
+                </table>
+            </div>
+        </div>
+        
+    </div>
+        
+    <script src="./js/main.js"></script>
+    <script>
+        Validator({
+            form: "#form-data",
+            rules:[ 
+                Validator.isRequired("#name"),
+                Validator.isRequired("#age"),
+                Validator.isRequired("#email"),
+                Validator.isRequired("#address"),
+                Validator.isNumber("#age"),
+                Validator.isEmail("#email"),
+            ]
+        });
+    </script>
+</body>
+</html>
