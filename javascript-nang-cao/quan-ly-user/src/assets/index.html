@@ -12,31 +12,31 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-4">
-                <form class="user-info mt-5" id="form-data">
+                <form class="user-info mt-5" id="form-data" action="">
                     <div class="group">
                         <label for="">Name:</label>
-                        <input type="text" id="name" value="" required>
+                        <input type="text" id="name" value="" name="name">
                         <i class="far fa-check-circle success"></i>
                         <i class="fas fa-exclamation-circle error"></i>
                         <span class="message-error">Error Message</span>
                     </div>
                     <div class="group">
                         <label for="">Age:</label>
-                        <input type="text" id="age" value="" required>
+                        <input type="text" id="age" value="" name="age">
                         <i class="far fa-check-circle success"></i>
                         <i class="fas fa-exclamation-circle error"></i>
                         <span class="message-error">Error Message</span>
                     </div>
                     <div class="group">
                         <label for="">Email:</label>
-                        <input type="text" id="email" value="" required>
+                        <input type="text" id="email" value="" name="email">
                         <i class="far fa-check-circle success"></i>
                         <i class="fas fa-exclamation-circle error"></i>
                         <span class="message-error">Error Message</span>
                     </div>
                     <div class="group">
                         <label for="">Address:</label>
-                        <input type="text" id="address" value="" required>
+                        <input type="text" id="address" value="" name="address">
                         <i class="far fa-check-circle success"></i>
                         <i class="fas fa-exclamation-circle error"></i>
                         <span class="message-error">Error Message</span>
@@ -65,16 +65,21 @@
         
     <script src="./js/main.js"></script>
     <script>
-        Validator({
-            form: "#form-data",
-            rules:[ 
-                Validator.isRequired("#name"),
-                Validator.isRequired("#age"),
-                Validator.isRequired("#email"),
-                Validator.isRequired("#address"),
-                Validator.isNumber("#age"),
-                Validator.isEmail("#email"),
-            ]
+        document.addEventListener('DOMContentLoaded', function () {
+            Validator({
+                form: "#form-data",
+                rules:[ 
+                    Validator.isRequired("#name"),
+                    Validator.isRequired("#age"),
+                    Validator.isRequired("#email"),
+                    Validator.isRequired("#address"),
+                    Validator.isNumber("#age"),
+                    Validator.isEmail("#email"),
+                ],
+                onSubmit: function(data){
+                    console.log(data);
+                }           
+            });
         });
     </script>
 </body>
