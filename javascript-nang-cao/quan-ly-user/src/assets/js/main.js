@@ -28,7 +28,10 @@ class User {
     }
 
     create(){
-        
+        var data = this.data;
+        var init = this.init();
+        var saveData = data => this.saveLocalStorage(data);
+
        Validator({
             form: "#form-data",
             rules:[ 
@@ -39,20 +42,24 @@ class User {
                 Validator.isNumber("#age"),
                 Validator.isEmail("#email"),
             ],
-            onSubmit: function(data){
-                return data;
+            onSubmit: function(_data){
+                data.push(_data);
+                saveData(data);
+                return init;
             }
         });
-        let newStudent = {
-            name: this.userName.value,
-            age: this.age.value,
-            email: this.email.value,
-            address: this.address.value,
-        };
+        // console.log(dataSource);
+        // return;
+        // let newStudent = {
+        //     name: this.userName.value,
+        //     age: this.age.value,
+        //     email: this.email.value,
+        //     address: this.address.value,
+        // };
         
-        this.data.push(newStudent);
-        this.saveLocalStorage(this.data);
-        return this.init();
+        // this.data.push(newStudent);
+        // this.saveLocalStorage(this.data);
+        // return this.init();
    }
 
    show(){
@@ -153,7 +160,6 @@ function Validator(options){
                         return values;
                         
                     }, {});
-                    console.log(formValues);
                     options.onSubmit(formValues);
                     
                 }
@@ -194,7 +200,10 @@ Validator.isRequired = function(selector){
         selector: selector,
         test: function(value){
             return value ? undefined : "Vui lòng nhập trường này!";
-        }
+        },
+        // isCheck: function(value) {
+        //     return value == undefined ? true: false;
+        // }
     }
 }
 Validator.isEmail = function(selector){
