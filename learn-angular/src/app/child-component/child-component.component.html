@@ -1,0 +1,14 @@
+<div class="container">
+    <h4>Detail Info</h4>
+    <div *ngIf="detailInfo">
+    <h6>{{detailInfo.name}} Details Info</h6>
+    <div><span>Id : {{detailInfo.id}}</span></div>
+    <div>
+        <label for="" class="mr-3">Name : </label>
+        <input type="text" [(ngModel)]="detailInfo.name">
+    </div>
+    <div>
+        Gender : {{detailInfo.gender == 0 ? 'Nữ' : 'Nam'}}
+    </div>
+    </div>  
+</div>

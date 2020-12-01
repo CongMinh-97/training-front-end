@@ -1,0 +1,93 @@
+<div class="container">
+    <h2 style="color:brown; text-align:center"> *** Directive Structoral ***</h2>  
+    <div class="mt-4">
+        <h4> 1. *ngIf</h4>
+        <div class="list-group">
+            <div *ngIf="isShow" [style.color]="isShow?'red':'gray'">User name: {{userName}}</div>
+            <button (click)="onToggle()" class="btn btn-primary">Show User name</button>
+        </div>     
+        <br/>
+        <div class="list-group">
+            <label for="">
+                <input type="radio" name="rdCheck" id="" (click)="check(true)">
+                Hợp lệ
+            </label>
+            <label for="">
+                <input type="radio" name="rdCheck" id="" (click)="check(false)">
+                Không hợp lệ
+            </label>
+            <p  *ngIf="isCheck;else notcheck">Hợp lệ</p>
+            <ng-template #notcheck>
+                <p>Không hợp lê</p>
+            </ng-template>
+        </div>
+        <form>  
+            <h5>Tuoi</h5>    
+            <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Enter age" 
+                [(ngModel)]="age"
+                [ngModelOptions]="{standalone: true}">
+                <!-- <ng-template *ngIf="age>18;then enoughAge else elseNotEnoughAge">
+                </ng-template> 
+                <ng-template #enoughAge>
+                    <p>Du tuoi</p>
+                </ng-template>
+                <ng-template #elseNotEnoughAge>
+                    <p>Chua du tuoi</p>
+                </ng-template>  -->
+                <ng-container *ngIf="age>18;else elseNotEnoughAge">
+                    <p>Du tuoi</p>
+                </ng-container> 
+                <ng-template #elseNotEnoughAge>
+                    <p>Chua du tuoi</p>
+                </ng-template>      
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="mt-4">
+        <h4> 2. *ngFor & ngSwitch</h4>
+        <h4 class="mt-3">List Products</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">STT</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productList;let i=index"
+                [ngSwitch]="product.status">
+                <th scope="row">{{i+1}}</th>
+                <td>{{product.name}}</td>
+                <td *ngSwitchCase="1" [style.color]="'red'">
+                    {{product.price}} VND
+                </td>
+                <td *ngSwitchCase="0" [style.color]="'green'">
+                    {{product.price}} VND
+                </td>
+                <td *ngSwitchDefault [style.color]="'gray'">
+                    {{product.price}} VND
+                </td>
+                <td>
+                    <img [src]="product.srcImage" alt="">
+                </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="mt-4">
+        <h4> 3. Attribute  Directive</h4>
+        <p [ngClass]="['text--center', 'text--uppercase', 'color--red']">Lorem ipsum, dolor sit amet consectetur.</p>
+        <p [ngClass]="{'text--center':true, 'text--uppercase': true, 'color--red': false}">Lorem ipsum, dolor sit amet consectetur.</p>
+        <p [class.text--center] = "true"
+            [class.text--uppercase] = "true"
+            [class.color--red] = "true">Hello
+        </p>
+        <p [class]="'text--center text--uppercase color--red'">Hi</p>
+    </div>
+</div>
+

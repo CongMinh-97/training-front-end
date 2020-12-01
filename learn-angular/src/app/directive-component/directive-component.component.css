@@ -1,0 +1,12 @@
+.text--center {
+  text-align: center;
+}
+.text--uppercase {
+  text-transform: uppercase;
+}
+.fontsize--primary {
+  font-size: 16px;
+}
+.color--red {
+  color: red;
+}
