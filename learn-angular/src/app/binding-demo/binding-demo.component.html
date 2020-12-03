@@ -1,0 +1,37 @@
+<div class="container">
+    <h4>1. interpolation</h4>
+    <p>Name: {{name}}</p>
+    <p>{{"Hello "+ name}}</p>
+    <p>{{name.toUpperCase()}}</p>
+    <p>{{gettingUser()}}</p>
+
+    <h4>2. Attribute binding</h4>
+    <a [href] = "href">Link</a> <br/>
+    <img [src] = "src" alt="">
+
+    <h4>3. style binding</h4>
+    <p [style.color]="titleStyles.color"
+        [style.font-style]="titleStyles.fontStyle">
+        Lorem ipsum dolor sit amet consectetur, adipisicin
+    </p>
+    <p [style.color] = "hasError? 'red': 'green'">Hello world</p>
+
+    <h4>4. class binding</h4>
+    <!-- doi voi 1 class, neu gia tri hasError bang true thi add class text--red vao the p, nguoc lai thi k add class -->
+    <p [class.text--red] = "hasError">single CSS class</p>
+    <!-- muon them nhieu class -->
+    <p [class.text--red] = "!hasError" [class.text--uppercase] = "hasError" [class.font-size-large] = "hasError">multiple CSS classes</p>
+
+    <h4>5. event binding</h4>
+    <button class="btn btn-primary" (click) ="sayHello()">Click me</button>
+
+
+    <h4>6. Two way binding</h4>
+    <!-- cu phap: [()] = "" -->
+    <p>{{text}}</p>
+    <input [(ngModel)] = "text" placeholder="Enter name"/>
+    <br>
+    <span>Result</span>
+    <button class="btn"> + </button>
+    <button class="btn"> - </button>
+</div>

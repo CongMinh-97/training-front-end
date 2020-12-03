@@ -1,0 +1,15 @@
+<form [formGroup]="infoForm" (ngSubmit)="onSubmit(infoForm.value)">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="name@example.com">
+      <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required" class="text-danger">
+            Name is required.
+          </div>
+          <div *ngIf="infoForm.get('email').errors.email" class="text-danger">
+            khong dung dinh dang email
+          </div>
+      </ng-container>
+    </div>
+    <button type="submit" class="btn btn-block">Add</button>
+</form>

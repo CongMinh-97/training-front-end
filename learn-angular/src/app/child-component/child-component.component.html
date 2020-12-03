@@ -10,5 +10,37 @@
     <div>
         Gender : {{detailInfo.gender == 0 ? 'Nữ' : 'Nam'}}
     </div>
-    </div>  
+    </div> 
+    <div>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Use name: </label>
+              <input type="text" class="form-control" id="" placeholder="Enter user name"
+                    [(ngModel)]="newUser.name"
+                    [ngModelOptions]="{standalone: true}">
+                    <!-- su dung ngModel de binding du lieu trong component child tu component sang view, va nguoc lai -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Gender: </label>
+                <div class="form-check">
+                    <div>
+                        <input class="form-check-input" type="radio" name="male" id="" value="1" checked
+                                [(ngModel)]="newUser.gender">
+                        <label class="form-check-label" for="male">
+                            Nam
+                        </label>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" name="female" id="" value="0"
+                                [(ngModel)]="newUser.gender">
+                        <label class="form-check-label" for="female">
+                            Nữ
+                        </label>
+                    </div>           
+                </div>
+            </div>           
+            <button type="button" class="btn btn-primary" (click)="addNewUser(newUser)">Add</button>
+          </form>
+    </div> 
 </div>
+

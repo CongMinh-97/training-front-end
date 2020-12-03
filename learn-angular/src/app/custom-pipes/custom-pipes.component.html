@@ -1,0 +1,10 @@
+<div class="container">
+    <h3 style="color:brown; text-align:center" class="mt-3 mb-3">*** Pipes ***</h3>
+    <p>{{product.name | uppercase}}</p>
+    <p>{{product.desc | titlecase}}</p>
+    <span>{{product.amount | number : '1.0-3'}}</span>
+    <br/>
+    <span>{{product.price | currency : 'VND'}}</span>
+    <br/>
+    <span>{{product.today |  date:'h:mm a z'}}</span>
+</div>

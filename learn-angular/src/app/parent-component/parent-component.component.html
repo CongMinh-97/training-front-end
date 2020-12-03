@@ -1,18 +1,19 @@
 <div class="container">
-    <h2 style="color:brown; text-align:center" class="mb-3"> *** Sharing data between child and parent component ***</h2>
+    <h2 style="color:brown; text-align:center" class="mt-3 mb-3"> *** Sharing data between child and parent component ***</h2>
     <div class="row">
         <div class="col-sm-12 col-md-7 col-lg-7">
             <h3>List Users</h3>
             <ul class="list-group">
-                <li *ngFor="let user of listUser" class="list-group-item" (click)="onSelect(user)">
-                <span class="badge badge-dark">{{user.id}}</span> {{user.name}}
+                <li *ngFor="let user of listUsers" class="list-group-item" (click)="onSelect(user)">
+                <span class="badge badge-dark">{{user.id}}</span> {{user.name | titlecase}}
                 </li>
             </ul>
         </div>
         <div class="col-sm-12 col-md-5 col-lg-5">
-            <app-child-component [detailInfo]="selectedUser"></app-child-component>
+            <app-child-component [detailInfo]="selectedUser"
+                    (newUserEvent)="addNewUser($event)">
+                    <!-- ( bien day dl tu con sang ) =" function($event) - ham de nhan lai dl tu child gui qua, bat buoc truyen vao la $event"-->
+            </app-child-component>
         </div>
-    </div>
-    
-    
+    </div> 
 </div>
