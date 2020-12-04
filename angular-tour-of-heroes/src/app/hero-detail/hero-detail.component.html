@@ -1,0 +1,27 @@
+<!-- <h3>Info detail's hero</h3>
+<table class="table table-bordered" *ngIf="heroDetail">
+    <thead class="table-dark">
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{heroDetail.id}}</td>
+            <td>{{heroDetail.name}}</td>
+        </tr>
+    </tbody>
+</table> -->
+<div *ngIf="hero">
+    <h2>Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+        <!-- two way bindingbinding, sd [(ngModel)]-->
+      </label>
+    </div>
+    <button (click)="goBack()">go back</button>
+  </div>
+

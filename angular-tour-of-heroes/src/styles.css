@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 62.5%;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+.btn--primary {
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background-color: rgb(214 214 214 / 54%);
+  border-radius: 5px;
+}

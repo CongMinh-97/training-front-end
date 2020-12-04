@@ -1,0 +1,37 @@
+
+<div class="heroForm" [hidden]="submitted">
+    <h3 class="heroForm__title">Hero Form</h3>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit()"> 
+    <!--khi import FormsModule thi angular tu dong tao va gan ngForm vao the form -->
+        <div class="mb-3">
+            <label for="name" class="form-label ng-invalid">Name</label>
+            <input type="name" class="form-control" id="name" 
+                    [(ngModel)]="model.name" #name="ngModel"
+                    name="name"
+                    required> <!-- [(ngModel)]  two-way binding view den gia tri name cua model ben component-->
+            <small class="text-danger" [hidden]="name.valid || name.pristine"> Name is required</small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Alter Ago</label>
+            <input type="text" class="form-control"
+                    [(ngModel)]="model.alterEgo"
+                    name="alterAgo" #alterAgo="ngModel"
+                    required>
+            <small class="text-danger" [hidden]="alterAgo.valid || alterAgo.pristine"> Alter Ago is required</small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Hero Power</label>
+            <select class="form-select" aria-label="Default select example"
+                    [(ngModel)]="model.power"
+                    name="power">
+                <option *ngFor="let power of powers">{{power}}</option> <!-- lap de show ra cac option -->
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" 
+                (click)="newHero(); heroForm.reset()"
+                [disabled]="!heroForm.form.valid">
+                Add
+        </button>
+        <!--click vao se add them newHero, va khi submit thi se reset het value mau tren cac input, neu form ch duoc valid thi button de bi disable-->
+    </form>
+</div>
