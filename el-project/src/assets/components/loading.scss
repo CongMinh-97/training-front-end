@@ -1,0 +1,26 @@
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fcfcfc80;
+  z-index: 2;
+}
+
+//.mat-spinner.mat-progress-spinner.mat-primary.mat-progress-spinner-indeterminate-animation.ng-star-inserted : class cua mat spinner
+.mat-spinner {
+  z-index: 3;
+  top: 50%;
+  ::ng-deep circle {
+    stroke: #33dd82;
+  }
+}

@@ -1,0 +1,23 @@
+<table class="table" style="font-size: 15px;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of List">
+        <td>{{item.status}} {{this.item.id}}
+            <select class="select-status-{{this.item.status}}"
+                    (change)="onChange($event, this.item.id)" id="status">
+                <option *ngFor="let option of dataTest" [value]="option.id"
+                [attr.selected]="item.status == option.id ? true : null">{{option.status}}</option>                    
+            </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngFor="let item of dataTest; let i=index" style="display: flex;">
+    <button style="padding: 5px;font-size: 14px">option {{i+1}} </button>
+  </div>
+
+

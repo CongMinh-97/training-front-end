@@ -1,0 +1,129 @@
+.header {
+  background-color: #fff;
+  &__inner {
+    @include d-flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  &__logo {
+    min-width: 30px;
+    max-width: 50px;
+    height: 30px;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      height: 100%;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    // .toggle-menu {
+    //   font-size: 5px;
+    // }
+  }
+  &__menu {
+    display: flex;
+  }
+  &__message {
+    margin: 0 0.5rem;
+  }
+  &__account {
+    margin: 0 0.5rem;
+    font-size: 13px;
+    .icon {
+      margin: 0 0.3rem;
+    }
+  }
+  @media (min-width: 768px) {
+    &__inner {
+      align-items: center;
+    }
+    &__logo {
+      margin: 0;
+    }
+    &__content {
+      justify-content: flex-end;
+      .toggle-menu {
+        display: none;
+      }
+    }
+    .icon i {
+      font-size: 22px;
+    }
+    &__message,
+    &__account {
+      margin: 0 1.5rem;
+      font-size: 14px;
+    }
+    &__account > div {
+      display: flex;
+      align-items: center;
+      span.icon {
+        margin: 0 0.7rem;
+        display: inline-block;
+      }
+      i.fa-angle-down {
+        font-size: 20px;
+      }
+    }
+  }
+  .dropdown {
+    &-menu {
+      min-width: 150px;
+      display: block;
+      right: 0;
+      padding: 0;
+    }
+    &-item {
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+      padding: 5px 15px;
+    }
+    &-item:last-child {
+      border-bottom: none;
+    }
+  }
+  .select-languale {
+    height: 100%;
+    font-size: 14px;
+    padding: 0 8px;
+    background: #86d3e44f;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+}
+
+.inputState {
+  color: #fff;
+  option {
+    padding: 0.5rem;
+  }
+}
+.form-control.inputState {
+  padding: 0.5rem;
+  color: #fff;
+  font-size: 14px;
+}
+.inputState #isNotActived {
+  background-color: rgb(149, 219, 240);
+}
+.inputState #trial {
+  background-color: rgb(6, 48, 163);
+}
+.inputState #using {
+  background-color: rgb(245, 133, 28);
+}
+.inputState #trialExpires {
+  background-color: rgb(133, 67, 55);
+}
+.inputState #outOfDate {
+  background-color: rgb(199, 48, 21);
+}
+.inputState #otherState {
+  background-color: rgb(214, 50, 187);
+}

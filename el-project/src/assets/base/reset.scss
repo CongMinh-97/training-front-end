@@ -1,0 +1,17 @@
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none !important;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}

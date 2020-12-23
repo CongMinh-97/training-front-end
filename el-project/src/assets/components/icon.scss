@@ -1,0 +1,32 @@
+.icon {
+  i {
+    font-size: 20px;
+    line-height: 1;
+    color: rgb(150, 147, 147);
+  }
+}
+.icon:hover {
+  cursor: pointer;
+}
+.icon--sidebar {
+  text-align: center;
+  background-color: #fff;
+  padding: 0.5rem;
+  display: inline-block;
+  border-radius: 4px;
+  i {
+    line-height: 30px;
+    color: #ccc;
+    width: 30px;
+    font-size: 30px;
+  }
+}
+.icon--sidebar.active,
+.icon--sidebar:hover {
+  transition: all 0.5s ease-in-out;
+  background-color: $color-quaternary;
+  i {
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+  }
+}

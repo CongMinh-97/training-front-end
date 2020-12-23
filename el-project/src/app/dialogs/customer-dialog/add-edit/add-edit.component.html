@@ -1,0 +1,76 @@
+<h1 mat-dialog-title>Create new user </h1>
+<div mat-dialog-content>
+    <form action="" [formGroup]="formEditAdd" (ngSubmit)="onSubmit(formEditAdd.value)"> 
+        <mat-form-field class="full-width">
+            <mat-label>Id</mat-label>
+            <input matInput placeholder="Enter Id" formControlName="id">
+            <mat-error *ngFor="let err of validationMessages.id">
+                <mat-error *ngIf="formEditAdd.get('id').hasError(err.type) && (formEditAdd.get('id').dirty || formEditAdd.get('id').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Tên khách hàng</mat-label>
+            <input matInput placeholder="Enter name" formControlName="name">
+            <mat-error *ngFor="let err of validationMessages.name">
+                <mat-error *ngIf="formEditAdd.get('name').hasError(err.type) && (formEditAdd.get('name').dirty || formEditAdd.get('name').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Mã khách hàng</mat-label>
+            <input matInput placeholder="Enter user code" formControlName="userCode">
+            <mat-error *ngFor="let err of validationMessages.code">
+                <mat-error *ngIf="formEditAdd.get('userCode').hasError(err.type) && (formEditAdd.get('userCode').dirty || formEditAdd.get('userCode').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Tên miền</mat-label>
+            <input matInput placeholder="Enter your domain" formControlName="domain">
+            <mat-error *ngFor="let err of validationMessages.domain">
+                <mat-error *ngIf="formEditAdd.get('domain').hasError(err.type) && (formEditAdd.get('domain').dirty || formEditAdd.get('domain').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Số điện thoại</mat-label>
+            <input matInput placeholder="Enter your phone number" formControlName="phoneNumber">
+            <mat-error *ngFor="let err of validationMessages.phone">
+                <mat-error *ngIf="formEditAdd.get('phoneNumber').hasError(err.type) && (formEditAdd.get('phoneNumber').dirty || formEditAdd.get('phoneNumber').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Email" formControlName="email">
+            <mat-error *ngFor="let err of validationMessages.email">
+                <mat-error *ngIf="formEditAdd.get('email').hasError(err.type) && (formEditAdd.get('email').dirty || formEditAdd.get('email').touched)">
+                    {{err.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Trạng thái</mat-label>
+            <mat-select>
+                <mat-option>
+                  aaa
+                </mat-option>
+                <mat-option>
+                    aaa
+                  </mat-option>
+            </mat-select>  
+        </mat-form-field>
+        <div mat-dialog-actions>
+            <button mat-button class="btn btn-secondary mr-3">Cancle</button>
+            <button mat-button cdkFocusInitial type="submit" class="btn btn-primary"  [disabled]="formEditAdd.invalid">Save</button>
+        </div>
+    </form>
+    
+</div>
+

@@ -1,0 +1,36 @@
+<section class="header">
+    <div class="header__inner">
+        <a href="" class="header__logo">
+            <img src="../../../assets/images/e-learningforkids_logo.png" alt="">
+        </a>
+        <div class="header__content">
+            <!-- <div class="toggle-menu" (click)="showSideBar()">
+                <span><i class="fa fa-bars fa-5x"></i></span>
+            </div> -->
+            <nav class="header__menu">    
+                <div class="header__message icon" matBadge="4">
+                    <i class="fa fa-bell fa-5x"></i>
+                </div>
+                <div class="header__account dropdown text--bold">
+                    <div>
+                        <span class="icon"><i class="fa fa-user-circle fa-5x"></i></span>
+                        Nguyen Xuan Anh
+                        <span class="icon" (click)="isShowDropdown()"><i class="fa fa-angle-down fa-5x"></i></span> 
+                    </div>              
+                    <div class="dropdown-menu" *ngIf="this.isCheckShowDropDown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                <div class="header__language">
+                    <select class="select-languale">
+                        <option>Tiếng Việt</option>
+                        <option>Tiếng Anh</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+        
+    </div>
+</section>

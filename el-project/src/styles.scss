@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+// 1. abstracts
+@import "./assets/abstracts/extends.scss";
+@import "./assets/abstracts/mixins.scss";
+@import "./assets/abstracts/functions.scss";
+@import "./assets/abstracts/variables.scss";
+// 2. base
+@import "./assets/base/helper.scss";
+@import "./assets/base/reset.scss";
+// @import "./assets/components/*.scss";
+// 3. components
+@import "./assets/components/buttons.scss";
+@import "./assets/components/icon.scss";
+@import "./assets/components/sidebar.scss";
+@import "./assets/components/header.scss";
+@import "./assets/components/main.scss";
+html,
+body {
+  height: 100%;
+  font-size: 62.5% !important;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: $color-primary;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  //style outside app root
+  .mat-menu-content:not(:empty) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

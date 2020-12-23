@@ -1,0 +1,148 @@
+<div class="main__top">
+  <div class="main__title title">
+    <h2>Khách hàng</h2>
+  </div>
+  <div class="main__tool">
+    <div class="btn--search search--customer">
+      <input type="text" placeholder="Tên hoặc mã khách hàng" [(ngModel)]="keyword" name="keyword" 
+              #inputSearch (keyup.enter)="searchByKeyword(inputSearch.value)" *ngIf="isCheckShowSearch">
+      <span class="icon icon--tool icon--search" (click)="showInputSearch()"><i class="fa fa-search fa-5x"></i></span>
+    </div>
+    <div class="filter filter--customer">
+      <span class="icon icon--tool icon--filter" (click)="showOptionFilter()"><i class="fa fa-filter fa-5x"></i></span>
+      <div class="filter__inner" *ngIf="isCheckShowFilter">
+        <div class="filter__option" *ngFor="let item of dataStatus; let i= index">
+          <button value=1 (click)="getOption(i)" [ngClass]="{'active': item.isChecked==true, 'normal':item.isChecked==false}">{{item.status}}</button>
+          <!-- <button value=5 (click)="getOption($event, 2)">Dùng thử</button> -->
+          <!-- <button value=2 (click)="getOption($event, 3)">Đang sử dụng</button>
+          <button value=3 (click)="getOption($event, 4)">Hết hạn sử dụng</button>
+          <button value=4 (click)="getOption($event, 5)">Hết hạn dùng thử</button>
+          <button value=6 (click)="getOption($event, 6)">Khác</button> -->
+        </div>
+        <button class="btn btn--filter btn--style01" (click)="filter($event)">Lọc</button>
+      </div>
+    </div>
+    <button class="btn btn--style01 btn--add" (click)="openEditAddCustomer(true)">
+      <span class="icon"><i class="fa fa-plus fa-5x"></i></span>Thêm khách hàng
+    </button>
+  </div>
+</div>
+<div class="main__content">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="list-customers"> 
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tên khách hàng </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mã khách hàng </th>
+        <td mat-cell *matCellDef="let row"> {{row.userCode}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="domain">
+        <th mat-header-cell *matHeaderCellDef> Tên miền </th>
+        <td mat-cell *matCellDef="let row"> {{row.domain}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Số điện thoại </th>
+        <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let row; let i=index"> {{row.status}}
+          <select (change)="changeOption($event, row.id)"
+                  class="select-status-{{this.row.status}}" 
+                  id="select-status">
+          <option *ngFor="let state of dataStatus, let i= index" [value]="state.id" 
+                  [attr.selected]="row.status== state.id ? true : null" style="background-color: #fff; color: #000">
+            {{state.status}}
+          </option>                    
+        </select>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Công cụ </th>
+        <td mat-cell *matCellDef="let row" class="actions">    
+          <span mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </span>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item class="btn btn--edit" (click)="getDataUpdate(row)" (click)="openEditAddCustomer(false)">Chỉnh sửa</button>
+              <button mat-menu-item class="btn btn--del" (click)="getDataDelete(row)" (click)="openDeleteCustomer()">Xóa</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[ 10, 20, 100]"></mat-paginator>
+    <!-- <table class="table" class="list-customers">
+      <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">ID</th>
+          <th scope="col">Tên khách hàng</th>
+          <th scope="col">Mã khách hàng</th>
+          <th scope="col">Tên miền</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Email</th>
+          <th scope="col">Trạng thái</th>
+          <th scope="col">Công cụ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of this.listCustomers | paginate: { itemsPerPage: 10, currentPage:p}; let i= index">
+          <td>{{i+1}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.userCode}}</td>
+          <td>{{item.domain}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.email}}</td>
+          <td>
+            <select (change)="changeOption($event)" 
+              [ngClass]="this.isColorOption!=undefined ? 'select-status select-status-'+this.isColorOption : 'select-status select-status-'+ item.status"
+          >
+          <option *ngFor="let state of dataStatus, let i= index" [value]="state.id" [attr.selected]="item.status== state.id ? true : null" ngClass="select-status select-status-{{i}}">{{state.status}}</option>                    
+        </select>
+        </td>
+          <td class="actions">
+            <span mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </span>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <button class="btn btn--edit" (click)="getDataUpdate(item)" (click)="openEditAddCustomer(false)">Chỉnh sửa</button>
+              </button>
+              <button mat-menu-item class="btn btn--del">
+                <button class="btn btn--del" (click)="getDataDelete(item)" (click)="openDeleteCustomer()">Xóa</button>
+              </button>
+            </mat-menu>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" class="pages"></pagination-controls> -->
+  </div>
+</div>
+<div class="loading"  *ngIf="isShowSpinner">
+  <mat-spinner style="margin:0 auto;" [diameter]="40"></mat-spinner>
+</div>
+
+

@@ -1,0 +1,19 @@
+@import "../assets/abstracts/mixins.scss";
+.wrapper {
+  background-color: #e8dfdf82;
+
+  &__main {
+    @include d-flex;
+    .sidebar-test {
+      width: 7%;
+    }
+    .content__main {
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .content-test {
+        width: 92%;
+      }
+    }
+  }
+}

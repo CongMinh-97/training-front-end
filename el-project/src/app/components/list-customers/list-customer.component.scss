@@ -1,0 +1,136 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.list-customers {
+  width: 100%;
+  font-size: 14px;
+  td,
+  th {
+    width: 11%;
+  }
+  th {
+    font-size: 12.5px;
+  }
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding-left: 15px;
+    padding-right: 5px;
+  }
+  .mat-header-cell {
+    font-weight: 600;
+    color: #000;
+    font-size: 12.5px !important;
+  }
+  tr td:first-child,
+  tr th:first-child,
+  tr th:last-child,
+  tr td:last-child {
+    width: 6%;
+  }
+  .actions {
+    text-align: center;
+    span {
+      padding: 0.5rem;
+      cursor: pointer;
+      .mat-icon {
+        display: inline-block;
+        padding: 0.5rem;
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .select-status {
+    padding: 0.3rem;
+    outline: none;
+  }
+  th {
+    padding: 3px 0;
+  }
+  tr {
+    border-bottom: 1px solid rgba(65, 63, 63, 0.144);
+  }
+
+  //select
+  #select-status {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  .select-status {
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  .select-status-1 {
+    //Chưa kích hoạt
+    background: #44e0d3;
+    color: #fff;
+  }
+  .select-status-2 {
+    //Đang sử dụng
+    background: #eea537;
+    color: #fff;
+  }
+  .select-status-3 {
+    //Hết hạn sử dụng
+    background: #e62f2f;
+    color: #fff;
+  }
+  .select-status-4 {
+    //Hết hạn dùng thử
+    background: rgb(47, 206, 47);
+    color: #fff;
+  }
+  .select-status-5 {
+    //Dùng thử
+    background: #2a7e06;
+    color: #fff;
+  }
+  .select-status-6 {
+    //Khác
+    background: #ad3bd3;
+    color: #fff;
+  }
+}
+
+.mat-elevation-z8 {
+  overflow-x: scroll;
+  .mat-cell {
+    font-size: 13px;
+  }
+  @media (min-width: 768px) {
+    overflow-x: auto;
+    .mat-cell {
+      font-size: 14px;
+    }
+  }
+}
+
+.pages {
+  margin-top: 1rem;
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .ngx-pagination .pagination-previous a::before,
+  .ngx-pagination .pagination-previous.disabled::before {
+    content: "<";
+  }
+  .ngx-pagination .pagination-next a::after,
+  .ngx-pagination .pagination-next.disabled::after {
+    content: ">";
+  }
+  .ngx-pagination .current {
+    border-radius: 50% !important;
+    line-height: 1.3;
+  }
+}
